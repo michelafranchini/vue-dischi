@@ -19,5 +19,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~bootstrap/scss/bootstrap'; 
+// @import '~bootstrap/scss/bootstrap'; 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 </style>

@@ -18,15 +18,28 @@ export default {
 <style lang="scss" scoped>
 @import '../style/variables.scss';
     .card {
-        width: 150px;
+        max-width: 200px;
+        height: 350px;
+        text-align: center;
+        padding: 25px;
+        margin: 10px;
         background-color: $colorLightGrey;
 
-        h2, h3, h4 {
+        img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        h3, h4 {
             text-transform: uppercase;
-            color: white;
+            margin-bottom: 10px;
+            color: #808080;
         }
         h2 {
-            font-size: 25px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: white;
         }
         h3 {
             font-size: 15px;

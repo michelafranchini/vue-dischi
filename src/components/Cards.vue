@@ -1,11 +1,12 @@
 <template>
     <section class="dark_container"> 
-          
-        <div class="card_container"
-        v-for="card in cards" 
-        :key="card.id">
-            <Card :item="card" />
-        </div> 
+        <div class="album">
+            <div class="card_container"
+            v-for="card in cards" 
+            :key="card.id">
+                <Card :item="card" />
+            </div> 
+        </div>
       
     </section>
 </template>
@@ -41,12 +42,15 @@ export default {
 <style lang="scss" scoped>
 @import '../style/variables.scss'; 
     .dark_container {
+        padding: 50px;
         background-color: $colorDarkGrey;
     }
-    .card_container {
+    .album {
         width: 70%;
         margin: auto;
+        height: 100%;
         display: flex;
-        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
     }
 </style>
