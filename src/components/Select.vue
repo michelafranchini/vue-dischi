@@ -11,7 +11,25 @@
                 <option value="Pop">Pop</option>
                 <option value="Metal">Metal</option>
                 <option value="Jazz">Jazz</option>
-                <span>{{selectGenre}}</span>
+            </select>
+
+            <label for="author">Quale artista cerchi?</label>
+            <select 
+            id="author" 
+            name="authorlist" 
+            form="artist"
+            v-model="selectGenre"
+            @change="$emit('selected', selectGenre)">
+                <option value="Bon Jovi">Bon Jovi</option>
+                <option value="Queen">Queen</option>
+                <option value="Sting">Sting</option>
+                <option value="Steve Gadd Band">Steve Gadd Band</option>
+                <option value="Iron Maiden">Iron Maiden</option>
+                <option value="Eric Clapton">Eric Clapton</option>
+                <option value="Deep Purple">Deep Purple</option>
+                <option value="Metallica">Metallica</option>
+                <option value="Dave Weckl">Dave Weckl</option>
+                <option value="Michael Jacjson">Michael Jacjson</option>
             </select>
     </section>
 </template>
@@ -22,6 +40,7 @@ export default {
     data() {
         return {
             selectGenre: "", 
+            selectArtist:""
         }
     }
 }

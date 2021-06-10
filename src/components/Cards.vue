@@ -3,7 +3,7 @@
         <Select @selected="filteredGenre"/>
         <div class="album" v-if="!loading">
             <div class="card_container"
-            v-for="card in filteredSelectGenre" 
+            v-for="card in filterSearch" 
             :key="card.id">
                 <Card :item="card" />
             </div> 
@@ -31,6 +31,7 @@ export default {
             cards: [], 
             loading: true,
             filterType: "" , 
+            filterAuthor:"", 
         }
     }, 
     created() {
@@ -51,16 +52,35 @@ export default {
     methods : {
         filteredGenre(text) {
             this.filterType = text; 
+        }, 
+        filteredAuthor(text) {
+            this.filterAuthor = text; 
         }
     }, 
     computed: {
-        filteredSelectGenre () {
+        // filteredSelectGenre () {
+        //     const newArray = this.cards.filter(card =>
+        //         {
+        //             return card.genre.includes(this.filterType);
+        //         }
+        //     )
+        //     return newArray;
+        // }, 
+        // filteredSelectAuthor () {
+        //     const newArray = this.cards.filter(card =>
+        //     {
+        //         return card.author.includes(this.filterAuthor); 
+        //     }
+        //     )
+        //     return newArray;
+        // }, 
+        filterSearch() {
             const newArray = this.cards.filter(card =>
-                {
-                    return card.genre.includes(this.filterType);
-                }
+            {
+                return card.genre.includes(this.filterType) || card.author.includes(this.filterType); 
+            }
             )
-            return newArray;
+            return newArray; 
         }
     }
 }
