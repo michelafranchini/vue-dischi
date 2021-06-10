@@ -1,8 +1,6 @@
 <template>
     <div class="loader">
-        <h2>Aspetta solo qualche secondo</h2>
         <img src="../img/loading-pacman.svg" alt="">
-        <h2>Tra poco potrai ascoltare la tua musica preferita senza attese</h2>
     </div>
 </template>
 
@@ -25,12 +23,5 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: $colorDarkGrey;
-
-        h2{
-            display: block;
-            font-size: 30px;
-            text-transform: uppercase;
-            color: white; 
-        }
     }
 </style>

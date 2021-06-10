@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <Cards />
+    <main>
+      <Cards />
+    </main>
   </div>
 </template>
 

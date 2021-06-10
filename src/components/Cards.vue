@@ -1,8 +1,9 @@
 <template>
     <section class="dark_container" > 
+        <Select @selected="filteredGenre"/>
         <div class="album" v-if="!loading">
             <div class="card_container"
-            v-for="card in cards" 
+            v-for="card in filteredSelectGenre" 
             :key="card.id">
                 <Card :item="card" />
             </div> 
@@ -13,20 +14,23 @@
 
 <script>
 import Card from '../components/Card.vue';
-import Loading from '../components/Loading.vue'
+import Loading from '../components/Loading.vue';
+import Select from '../components/Select.vue' 
 import axios from 'axios'; 
 
 export default {
     name: "Cards",
     components: {
         Card, 
-        Loading
+        Loading, 
+        Select
     },
     data () {
         return {
             api: "https://flynn.boolean.careers/exercises/api/array/music", 
             cards: [], 
-            loading: true, 
+            loading: true,
+            filterType: "" , 
         }
     }, 
     created() {
@@ -39,10 +43,25 @@ export default {
 
                     setTimeout( () => {
                         this.loading = false; 
-                    }, 5000
+                    }, 1000
                     )
                 }
             )
+    }, 
+    methods : {
+        filteredGenre(text) {
+            this.filterType = text; 
+        }
+    }, 
+    computed: {
+        filteredSelectGenre () {
+            const newArray = this.cards.filter(card =>
+                {
+                    return card.genre.includes(this.filterType);
+                }
+            )
+            return newArray;
+        }
     }
 }
 </script>
