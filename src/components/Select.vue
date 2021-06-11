@@ -7,6 +7,7 @@
             form="genre"
             v-model="selectGenre"
             @change="$emit('selected', selectGenre)">
+                <option value="">Seleziona un genere</option>
                 <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
                 <option value="Metal">Metal</option>
@@ -20,6 +21,7 @@
             form="artist"
             v-model="selectGenre"
             @change="$emit('selected', selectGenre)">
+                <option value="">Seleziona un artista</option>
                 <option value="Bon Jovi">Bon Jovi</option>
                 <option value="Queen">Queen</option>
                 <option value="Sting">Sting</option>

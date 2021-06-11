@@ -3,8 +3,8 @@
         <Select @selected="filteredGenre"/>
         <div class="album" v-if="!loading">
             <div class="card_container"
-            v-for="card in filterSearch" 
-            :key="card.id">
+            v-for="(card, index) in filterSearch" 
+            :key="index">
                 <Card :item="card" />
             </div> 
         </div>
@@ -58,22 +58,6 @@ export default {
         }
     }, 
     computed: {
-        // filteredSelectGenre () {
-        //     const newArray = this.cards.filter(card =>
-        //         {
-        //             return card.genre.includes(this.filterType);
-        //         }
-        //     )
-        //     return newArray;
-        // }, 
-        // filteredSelectAuthor () {
-        //     const newArray = this.cards.filter(card =>
-        //     {
-        //         return card.author.includes(this.filterAuthor); 
-        //     }
-        //     )
-        //     return newArray;
-        // }, 
         filterSearch() {
             const newArray = this.cards.filter(card =>
             {
@@ -90,15 +74,17 @@ export default {
 @import '../style/variables.scss'; 
     .dark_container {
         padding: 50px;
-        background-color: $colorDarkGrey;
         padding: 20px 0;
-        height: 100vh;
+        height: calc(100vh - 74px);
+        overflow: hidden;
+        background-color: $colorDarkGrey;
     }
     .album {
-        width: 62%;
+        width: 65%;
         height: 100%;
         margin: auto;
         display: flex;
+        justify-content: space-evenly;
         flex-wrap: wrap;
         
     }
